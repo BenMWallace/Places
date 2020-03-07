@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center">
+    <form class="form-signin p-5" action="/insert_user" method="post">
+
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Scheduler</h1>
+        <p>Sign up now to create your own schedules.</p>
+      </div>
+
+      <div class="form-label-group">
+        <input type="email" id="inputEmail" name="query_email" class="form-control" placeholder="Email address" required="">
+        <label for="inputEmail"></label>
+      </div>
+
+      <div class="form-label-group">
+        <input type="password" id="inputPassword" name="query_password" class="form-control" placeholder="Password" required="">
+        <label for="inputPassword"></label>
+      </div>
+
+      <div class="form-label-group">
+        <input type="password" id="passwordConfirmation" name="query_password_confirmation" class="form-control" placeholder="Password confirmation" required="">
+        <label for="passwordConfirmation"></label>
+      </div>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+      <p class="mt-5 mb-3 text-muted text-center">Or, <a href="/user_sign_in">Sign in</a> instead.</p>
+    </form>
+  </div>     
+</div>
