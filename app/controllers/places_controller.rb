@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   def index
-    @places = Place.all.order({ :created_at => :desc })
+    @places = @current_user.places.all.order({ :Datetime_start => :asc })
 
     render({ :template => "places/index.html.erb" })
   end
@@ -14,7 +14,7 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new
-    @place.owner_id = params.fetch("query_owner_id")
+    @place.owner_id = @current_user.id
     @place.name = params.fetch("query_name")
     @place.description = params.fetch("query_description")
     @place.datetime_start = params.fetch("query_datetime_start")
@@ -33,7 +33,7 @@ class PlacesController < ApplicationController
     the_id = params.fetch("path_id")
     @place = Place.where({ :id => the_id }).at(0)
 
-    @place.owner_id = params.fetch("query_owner_id")
+    #@place.owner_id = params.fetch("query_owner_id")
     @place.name = params.fetch("query_name")
     @place.description = params.fetch("query_description")
     @place.datetime_start = params.fetch("query_datetime_start")

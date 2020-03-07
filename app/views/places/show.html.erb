@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Place #<%= @place.id %> details
+      <%= @place.name %> at <%= @place.datetime_start.strftime("%l:%M%P") %> on <%= @place.datetime_start.strftime("%a %b  %e %Y") %>
     </h1>
 
     <div class="row mb-3">
@@ -44,14 +44,14 @@
         Datetime start
       </dt>
       <dd>
-        <%= @place.datetime_start %>
+        <%= @place.datetime_start.strftime("%l:%M%P %a %b  %e %Y") %>
       </dd>
 
       <dt>
         Datetime end
       </dt>
       <dd>
-        <%= @place.datetime_end %>
+        <%= @place.datetime_end.strftime("%l:%M%P %a %b  %e %Y") %>
       </dd>
 
       <dt>

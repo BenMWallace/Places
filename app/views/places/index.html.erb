@@ -16,14 +16,6 @@
 
     <form action="/insert_place" method="post">
       <div class="form-group">
-        <label for="owner_id_box">
-          Owner
-        </label>
-
-        <input type="text" id="owner_id_box" name="query_owner_id" class="form-control">
-      </div>
-
-      <div class="form-group">
         <label for="name_box">
           Name
         </label>
@@ -75,14 +67,7 @@
   <div class="col-md-12">
     <table class="table">
       <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          Owner
-        </th>
-
+        
         <th>
           Name
         </th>
@@ -117,14 +102,7 @@
 
       <% @places.each do |place| %>
       <tr>
-        <td>
-          <%= place.id %>
-        </td>
-
-        <td>
-          <%= place.owner_id %>
-        </td>
-
+  
         <td>
           <%= place.name %>
         </td>
@@ -134,11 +112,11 @@
         </td>
 
         <td>
-          <%= place.datetime_start %>
+          <%= place.datetime_start.strftime("%l:%M%P %a %b  %e %Y") %>
         </td>
 
         <td>
-          <%= place.datetime_end %>
+          <%= place.datetime_end.strftime("%l:%M%P %a %b  %e %Y") %>
         </td>
 
         <td>

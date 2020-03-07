@@ -19,6 +19,10 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+
+
+
 module FinalProject
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -36,7 +40,9 @@ module FinalProject
 
     config.action_controller.default_protect_from_forgery = false
     config.active_record.belongs_to_required_by_default = false
-
+    config.time_zone = 'Central Time (US & Canada)'
+    config.active_record.default_timezone = :local
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
