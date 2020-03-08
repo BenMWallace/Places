@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   
   before_action(:force_user_sign_in)
   
-  helper_method :load_current_user
+  #helper_method :load_current_user
 
   def load_current_user
     the_id = session.fetch(:user_id)

@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
   def index
     @places = @current_user.places.all.order({ :Datetime_start => :asc })
+    @unique_datetimes = @current_user.places.all.pluck(:datetime_start).uniq #.order({ :Datetime_start => :asc })
 
     render({ :template => "places/index.html.erb" })
   end

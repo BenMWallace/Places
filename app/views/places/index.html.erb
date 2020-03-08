@@ -62,7 +62,7 @@
   </div>
 </div>
 
-<hr>
+
 <div class="row mb-3">
   <div class="col-md-12">
     <table class="table">
@@ -89,14 +89,6 @@
         </th>
 
         <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
         </th>
       </tr>
 
@@ -112,22 +104,15 @@
         </td>
 
         <td>
-          <%= place.datetime_start.strftime("%l:%M%P %a %b  %e %Y") %>
+          <%= place.datetime_start.try(:strftime, "%l:%M%P %a %b  %e %Y") %>
         </td>
 
         <td>
-          <%= place.datetime_end.strftime("%l:%M%P %a %b  %e %Y") %>
+          <%= place.datetime_end.try(:strftime, "%l:%M%P %a %b  %e %Y") %>
         </td>
 
         <td>
           <%= place.address %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(place.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(place.updated_at) %> ago
         </td>
 
         <td>
@@ -141,4 +126,29 @@
   </div>
 </div>
 
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        
+        <th>
+          Datetime start
+        </th>
+        
+      
+      </tr>
+
+      <% @unique_datetimes.each do |datetime| %>
+      <tr>
+  
+        <td>
+          <%= datetime %>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
 <hr>
