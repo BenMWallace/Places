@@ -1,7 +1,9 @@
 class PlacesController < ApplicationController
   def index
-    @places = @current_user.places.all.order({ :Datetime_start => :asc })
-    @unique_datetimes = @current_user.places.all.pluck(:datetime_start).uniq #.order({ :Datetime_start => :asc })
+    @places = @current_user.places.all.order({ :datetime_start => :asc })
+    @unique_datetimes = @current_user.places.all.pluck(:datetime_start).uniq.sort { |a,b| a && b ? a <=> b : a ? 1 : -1 } 
+    @unique_datetimes.each do |datetime|
+
 
     render({ :template => "places/index.html.erb" })
   end
